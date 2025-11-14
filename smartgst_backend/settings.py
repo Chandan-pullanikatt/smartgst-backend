@@ -69,7 +69,7 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-ROOT_URLCONF = 'smartgstbackend.urls'
+ROOT_URLCONF = 'smartgst_backend.urls'
 
 TEMPLATES = [
     {
@@ -87,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'smartgstbackend.wsgi.application'
+WSGI_APPLICATION = 'smartgst_backend.wsgi.application'
 
 
 # Database
