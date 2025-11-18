@@ -11,6 +11,13 @@ class BusinessListCreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+class BusinessUpdateView(generics.UpdateAPIView):
+    serializer_class = BusinessSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Business.objects.filter(owner=self.request.user)
+
 class BusinessDeleteView(generics.DestroyAPIView):
     serializer_class = BusinessSerializer
     permission_classes = [permissions.IsAuthenticated]

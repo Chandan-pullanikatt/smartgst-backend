@@ -23,13 +23,16 @@ class UserProfileView(APIView):
             "id": user.id,
             "username": user.username,
             "email": user.email,
+            "profile_image": user.profile_image.url if user.profile_image else None
         })
+
 class UpdateProfileView(generics.UpdateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = UserUpdateSerializer
 
     def get_object(self):
         return self.request.user
+
 
 
 class ChangePasswordView(generics.UpdateAPIView):
